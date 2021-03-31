@@ -5,13 +5,13 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public Transform pointForward;
-    public float force = 1;
-    public float jumpForce = 5;
+    public float force = 6;
+    public float jumpForce = 8;
+    public float maxSpeed = 2;
 
     private Rigidbody rb;
     private Vector3 sideMove;
     private bool isJumpPressed = false;
-    private float lastVelocityY = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,23 +20,24 @@ public class Character : MonoBehaviour
     void Update()
     {
         sideMove = Vector3.zero;
-        //var a = pointForward.rotation.;
-        //var b = Vector3.Cross(a, Vector3.forward);
-        //Debug.Log(a + "------" + b);
-        if (Input.GetKey("w")) sideMove += pointForward.forward;//sideMove += Vector3.forward; 
+        if (Input.GetKey("w")) sideMove += pointForward.forward;
         if (Input.GetKey("a")) sideMove += -pointForward.right; 
         if (Input.GetKey("s")) sideMove += -pointForward.forward; 
         if (Input.GetKey("d")) sideMove += pointForward.right;
-        isJumpPressed = Input.GetKey("space");//Input.GetKeyDown("space");
+        isJumpPressed = Input.GetKey("space");
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(sideMove * force);
-        if (isJumpPressed && Mathf.Abs(lastVelocityY - rb.velocity.y) < 0.001)
+        if (isJumpPressed && Mathf.Abs(rb.velocity.y) < 0.001f)
         {
-            rb.AddForce(Vector3.up * jumpForce);
+            rb.AddForce(pointForward.up * jumpForce, ForceMode.Impulse);
             isJumpPressed = false;
+        }
+        if (sideMove != Vector3.zero)
+        {
+            Vector3 vectorForceResult = Info.forceToReachVelocity(rb.velocity, sideMove.normalized * maxSpeed, force);
+            rb.AddForce(vectorForceResult);
         }
     }
 }
