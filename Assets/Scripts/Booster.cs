@@ -8,6 +8,6 @@ public class Booster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Rigidbody>().AddForce(transform.up * force);
+        other.attachedRigidbody.AddForce(transform.up * force, ForceMode.Impulse);
     }
 }
