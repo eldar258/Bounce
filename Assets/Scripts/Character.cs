@@ -5,9 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public Transform pointForward;
-    public float force = 6;
+    public float force = 1;
     public float jumpForce = 8;
-    public float maxSpeed = 2;
+    public float maxSpeed = 15;
 
     private Rigidbody rb;
     private Vector3 sideMove;
