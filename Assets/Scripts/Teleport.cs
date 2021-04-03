@@ -8,6 +8,7 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Transform>().position = teleportPosition.position;
+        other.GetComponent<Transform>().SetPositionAndRotation(teleportPosition.position, teleportPosition.rotation);
+        other.attachedRigidbody.velocity = Vector3.zero;
     }
 }
