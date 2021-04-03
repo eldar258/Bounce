@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    public Transform player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public Transform Player;
     void Update()
     {
-        transform.position = player.position;
+        transform.position = Player.position;
     }
 }
