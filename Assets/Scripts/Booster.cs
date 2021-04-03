@@ -8,6 +8,8 @@ public class Booster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.attachedRigidbody.AddForce(transform.up * force, ForceMode.Impulse);
+        Rigidbody rb = other.attachedRigidbody;
+        rb.velocity = Vector3.ProjectOnPlane(rb.velocity, transform.up);
+        rb.AddForce(transform.up * force, ForceMode.Impulse);
     }
 }
