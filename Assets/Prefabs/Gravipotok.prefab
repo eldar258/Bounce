@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3626640642533469466}
   - component: {fileID: 3626640642533469445}
   - component: {fileID: 3626640642533469444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gravipotok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5801961742681997740}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CenterMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
