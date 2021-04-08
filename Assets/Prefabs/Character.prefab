@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 8990030206827725228, guid: abf5b4f27da31e74883a345500362d60, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8990030206827725233, guid: abf5b4f27da31e74883a345500362d60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
